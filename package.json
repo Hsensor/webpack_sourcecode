@@ -1,0 +1,23 @@
+{
+  "name": "webpack_guide",
+  "version": "1.0.0",
+  "description": "webpack learn",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hsensor/webpack_sourcecode.git"
+  },
+  "author": "Hsensor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hsensor/webpack_sourcecode/issues"
+  },
+  "homepage": "https://github.com/Hsensor/webpack_sourcecode#readme",
+  "devDependencies": {
+    "webpack": "^1.7.3"
+  }
+}
