@@ -37,7 +37,7 @@ module.exports = {
       hash:true,
       chunks:['logoutPage','common.js']
     }),
-    new webpack.optimize.CommonsChunkPlugin("common.js"),
+    new webpack.optimize.CommonsChunkPlugin({name:"common.js",minChunks:2}),
     /*new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
