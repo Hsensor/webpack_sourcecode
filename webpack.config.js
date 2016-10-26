@@ -6,8 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry:{
     indexPage:["./app/entry1.js"],
-    loginPage:['./app/entry2.js'],
-    test_common:['./app/test_common.js']
+    loginPage:['./app/entry2.js']
     //生成3个对应的js文件
   },
   //entry:['./app/entry1.js','./app/entry2.js'],//生成一个main.js
@@ -21,18 +20,21 @@ module.exports = {
       template:__dirname+"/app/pages/index.html",
       inject:'body',
       hash:true,
-      chunks:['indexPage','common.js']
+      chunks:['common.js','indexPage']
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name:['test_common'],//将test_common加入chunk的文件
-      filename:'common.js',//生成文件
-      minChunks:3
+    new HtmlWebpackPlugin({
+      filename:__dirname+"/dist/loginPage.html",
+      template:__dirname+"/app/pages/index.html",
+      inject:'body',
+      hash:true,
+      chunks:['loginPage','common.js']
     }),
-    /*new webpack.optimize.UglifyJsPlugin({
+    new webpack.optimize.CommonsChunkPlugin("common.js"),
+    new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
-    })*/
+    })
     
   ]
 }
