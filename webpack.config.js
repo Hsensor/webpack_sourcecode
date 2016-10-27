@@ -7,7 +7,8 @@ module.exports = {
   entry:{
     indexPage:["./app/entry1.js"],
     loginPage:['./app/entry2.js'],
-    logoutPage:['./app/entry3.js']
+    logoutPage:['./app/entry3.js'],
+    page4:['./app/entry4.js']
     //生成3个对应的js文件
   },
   //entry:['./app/entry1.js','./app/entry2.js'],//生成一个main.js
@@ -36,6 +37,13 @@ module.exports = {
       inject:'body',
       hash:true,
       chunks:['logoutPage','common.js']
+    }),
+    new HtmlWebpackPlugin({
+      filename:__dirname+"/dist/page4.html",
+      template:__dirname+"/app/pages/index.html",
+      inject:'body',
+      hash:true,
+      chunks:['page4','common.js']
     }),
     new webpack.optimize.CommonsChunkPlugin({name:"common.js",minChunks:2}),
     /*new webpack.optimize.UglifyJsPlugin({
